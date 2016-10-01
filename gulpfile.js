@@ -14,7 +14,8 @@ gulp.task('html', function(){
   console.log("Something happening to your HTML");
 });
 gulp.task('styles', function(){
-  return gulp.src('./app/assets/styles/styles.css') /* the return is necessary because it is an asynchronous request */
+  /* the 'return' is necessary to respect the asynchronous nature of postcss*/
+  return gulp.src('./app/assets/styles/styles.css')
   .pipe(postcss([cssImport, cssvars, nested, autoprefixer]))
   .pipe(gulp.dest('./app/temp/styles'));
 });
@@ -28,6 +29,6 @@ gulp.task('watch', function(){
     });
     watch('./app/assets/styles/styles.css', function(){
       gulp.start('styles');
-      console.log("fuck you");
+      console.log("frak attack, yo");
     });
 });

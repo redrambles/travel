@@ -345,8 +345,10 @@ img {
   max-width: 100%;
   height: auto;
 }
+/* The '&' will apply the parent selector */
 .large-hero {
   position: relative;
+
 }
 .large-hero__text-content {
   position: absolute;
@@ -360,8 +362,22 @@ img {
   font-weight: 300;
   color: #2f5572;
   font-size: 4.8rem;
+  margin: 0;
 }
-/*body {
+.large-hero__subtitle {
+  font-weight: 300;
+  color: #2f5572;
+  font-size: 2.9rem;
+  margin: 0;
+}
+.large-hero__description {
+  color: #fff;
+  font-size: 1.875rem;/* 30px / 16px (default) */
+  font-weight: 100;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0,1);
+}
+/*
+body {
   background-color: tomato;
 }*/
 
