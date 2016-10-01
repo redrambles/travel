@@ -1,7 +1,10 @@
 var gulp = require('gulp'),
 watch = require('gulp-watch'),
 postcss = require('gulp-postcss'),
-autoprefixer = require('autoprefixer');
+autoprefixer = require('autoprefixer'),
+cssvars = require('postcss-simple-vars'),
+nested = require('postcss-nested'),
+cssImport = require('postcss-import');
 
 gulp.task('default', function(){
   console.log("Hooray - Gulp task bonus challenge: Achieved!");
@@ -11,9 +14,12 @@ gulp.task('html', function(){
   console.log("Something happening to your HTML");
 });
 gulp.task('styles', function(){
-  return gulp.src('./app/assets/styles/styles.css')
-  .pipe(postcss([autoprefixer]))
+  return gulp.src('./app/assets/styles/styles.css') /* the return is necessary because it is an asynchronous request */
+  .pipe(postcss([cssImport, cssvars, nested, autoprefixer]))
   .pipe(gulp.dest('./app/temp/styles'));
+});
+gulp.task('rub_my_feet', function(){
+  console.log("I am rubbing your feet right now. You are great.");
 });
 
 gulp.task('watch', function(){
