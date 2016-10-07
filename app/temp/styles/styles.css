@@ -337,6 +337,7 @@ textarea {
   -webkit-appearance: button; /* 1 */
   font: inherit; /* 2 */
 }
+/* Variables for our project */
 body {
   font-family: 'Roboto', sans-serif;
   color: #333;
@@ -345,7 +346,12 @@ img {
   max-width: 100%;
   height: auto;
 }
-/* Variables for our project */
+* {
+  box-sizing: border-box;
+}
+a {
+  color: #d59541;
+}
 /* The '&' will apply the parent selector */
 .large-hero {
   position: relative;
@@ -405,11 +411,10 @@ img {
 .wrapper {
   padding-left: 18px;
   padding-right: 18px;
-  max-width: 1200px;
-  /*margin: 0 auto;*/
+  max-width: 1236px;
+  overflow: hidden;
   margin-left: auto;
-  margin-right: auto;
-  
+  margin-right: auto; 
 }
 .wrapper--medium {
   max-width: 976px;
@@ -417,6 +422,14 @@ img {
 .wrapper .wrapper {
   padding-left: 0;
   padding-right: 0;
+}
+.wrapper--b-margin {
+  margin-bottom: 1rem;
+}
+@media (min-width: 530px) {
+  .wrapper {
+    margin-bottom: 3.875rem;
+  }
 }
 .btn {
   background-color: #2f5572;
@@ -454,6 +467,7 @@ img {
   font-size: 1.9rem;
   font-weight: 300;
   color: #2f5572;
+  
 }
 @media (min-width: 530px) {
   .headline {
@@ -489,6 +503,44 @@ img {
 }
 .headline--b-margin-large{
   margin-bottom: 1.6em;
+}
+.headline--no-t-margin {
+  margin-top: 0;
+}
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.row--gutters {
+  margin-right: -65px;
+}
+.row--gutters > div {
+  padding-right: 65px;
+}
+@media (min-width: 800px) {
+  .row__medium-4 {
+    float: left;
+    width: 33.33%;
+  }
+  .row__medium-4--larger {
+    width: 37%;
+  }
+  .row__medium-8 {
+    float: left;
+    width: 66.66%;
+  }
+  .row__medium-8--smaller {
+    width: 63%;
+  }
+}
+.generic-content-container p {
+  line-height: 1.65;
+  font-size: 1.125rem;
+  margin: 1.8rem 0;
+}
+.generic-content-container p a {
+  font-weight: 700;
 }
 
 
