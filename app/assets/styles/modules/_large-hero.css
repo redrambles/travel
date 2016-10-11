@@ -4,13 +4,17 @@
   border-bottom: 10px solid $mainBlue;
   
   &__text-content {
+    padding-top: 88px;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     width: 100%;
     text-align: center;
+    
+    @mixing atMedium {
+      padding-top: 60px;
+    }
   }
-
   &__image {
       display: block;
     }
