@@ -43,6 +43,7 @@ class StickyHeader{
     var that = this;
     this.pageSections.each(function(){
       var currentPageSection = this;
+      
       new Waypoint({
         element: currentPageSection,
         handler: function(direction){

@@ -41,7 +41,7 @@
     transform-origin: 100%;
     color: $mainBlue;
     
-    &:hover{
+    &:hover {
       color: $mainOrange;
       cursor: pointer;
     }
