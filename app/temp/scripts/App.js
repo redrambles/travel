@@ -68,7 +68,8 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var mobileMenu = new _MobileMenu2.default();
+	var mobileMenu = new _MobileMenu2.default(); /* ORDER MATTERS! */
+
 	new _RevealOnScroll2.default((0, _jquery2.default)(".feature-item"), "85%");
 	new _RevealOnScroll2.default((0, _jquery2.default)(".testimonial"), "60%");
 	var stickyHeader = new _StickyHeader2.default();
@@ -11284,7 +11285,7 @@
 	  _createClass(StickyHeader, [{
 	    key: 'refreshWaypoints',
 	    value: function refreshWaypoints() {
-	      this.lazyImages.load(function () {
+	      this.lazyImages.on("load", function () {
 	        Waypoint.refreshAll();
 	      });
 	    }

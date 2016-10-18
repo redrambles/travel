@@ -1,3 +1,5 @@
+/* ORDER MATTERS! */
+
 import MobileMenu from './modules/MobileMenu';
 import RevealOnScroll from './modules/RevealOnScroll';
 import Modal from './modules/Modal';
