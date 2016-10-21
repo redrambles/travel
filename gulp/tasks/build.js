@@ -7,7 +7,7 @@ cssnano = require('gulp-cssnano'),
 uglify = require('gulp-uglify'),
 browserSync = require('browser-sync').create();
 
-gulp.task('previewDist', function() {
+gulp.task('previewDocs', function() {
   browserSync.init({
     notify: false,
     server: {
@@ -16,11 +16,12 @@ gulp.task('previewDist', function() {
   });
 });
 
-gulp.task('deleteDistFolder', ['icons'], function() {
+gulp.task('deleteDocsFolder', ['icons'], function() {
   return del("./docs");
 });
 
-gulp.task('copyGeneralFiles', ['deleteDistFolder'], function() {
+/* In case you have some files in your app folder that you want to keep */
+gulp.task('copyGeneralFiles', ['deleteDocsFolder'], function() {
   var pathsToCopy = [
     './app/**/*',
     '!./app/index.html',
@@ -35,7 +36,7 @@ gulp.task('copyGeneralFiles', ['deleteDistFolder'], function() {
     .pipe(gulp.dest("./docs"));
 });
 
-gulp.task('optimizeImages', ['deleteDistFolder'], function() {
+gulp.task('optimizeImages', ['deleteDocsFolder'], function() {
   return gulp.src(['./app/assets/images/**/*', '!./app/assets/images/icons', '!./app/assets/images/icons/**/*'])
     .pipe(imagemin({
       progressive: true,
@@ -45,7 +46,7 @@ gulp.task('optimizeImages', ['deleteDistFolder'], function() {
     .pipe(gulp.dest("./docs/assets/images"));
 });
 
-gulp.task('useminTrigger', ['deleteDistFolder'], function() {
+gulp.task('useminTrigger', ['deleteDocsFolder'], function() {
   gulp.start("usemin");
 })
 
@@ -58,4 +59,4 @@ gulp.task('usemin', ['styles', 'scripts'], function() {
     .pipe(gulp.dest("./docs"));
 });
 
-gulp.task('build', ['deleteDistFolder', 'copyGeneralFiles', 'optimizeImages', 'useminTrigger']);
+gulp.task('build', ['deleteDocsFolder', 'copyGeneralFiles', 'optimizeImages', 'useminTrigger']);
