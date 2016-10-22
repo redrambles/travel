@@ -1154,6 +1154,11 @@ a {
   height: 72px;
   position: relative;
 }
+.social-icons__icon:hover{
+  background-color: #2f5572;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
 @media (min-width: 530px) {
   .social-icons__icon {
     width: 72px;
